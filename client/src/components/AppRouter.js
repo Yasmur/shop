@@ -1,18 +1,24 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import React, { useContext } from 'react';
+import {Switch, Route, Redirect} from 'react-router-dom'
+import { Context } from '..';
 import { authRoutes, publicRoutes } from '../routes';
+import { SHOP_ROUTE } from '../utils/consts';
 
 const AppRouter = () => {
-    const isAuth = true
+   const {user} = useContext(Context)
+   console.log(user)
     return (
-        <Routes>
-           {isAuth  && authRoutes.map(({path, Component}) =>
-           <Route key={path} path={path} component={Component} exact/>
+       
+       <Switch>
+           {user.isAuth && authRoutes.map(({path, Component}) =>
+           <Route key={path} path={path}  component={Component}exact />
            )}
             {publicRoutes.map(({path, Component}) =>
-           <Route key={path} path={path} component={Component} exact/>
+           <Route key={path} path={path}  component={Component}exact  />
            )}
-      </Routes>
+           <Redirect to={SHOP_ROUTE}/>
+       </Switch>
+     
     );
 };
 

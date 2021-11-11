@@ -3,7 +3,8 @@ import React from 'react';
 const DevicePage = () => {
     return (
         <div>
-           sdwewe
+         <div>sdwewessdad</div>  
+           <div>asdfaf</div>
         </div>
     );
 };

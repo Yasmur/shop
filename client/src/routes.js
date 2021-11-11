@@ -4,6 +4,7 @@ import Basket from "./pages/Basket";
 import Shop from "./pages/Shop";
 import Auth from "./pages/Auth";
 import DevicePage from "./pages/DevicePage";
+
 export const authRoutes = [
     {
         path: ADMIN_ROUTE,
