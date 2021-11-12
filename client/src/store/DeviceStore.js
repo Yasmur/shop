@@ -1,46 +1,106 @@
-import {makeAutoObservable} from 'mobx'
+import { makeAutoObservable } from "mobx";
 
 export default class DeviceStore {
-    constructor(){
-       this._types = [
-           {id: 1, name: 'Холодильники'},
-           {id: 1, name: 'Ноутбуки'}
-       ]
-       this._brands = [
-        {id: 1, name: 'Samsung'},
-        {id: 1, name: 'Asus'}
-    ]
+  constructor() {
+    this._types = [
+      { id: 1, name: "Холодильники" },
+      { id: 2, name: "Ноутбуки" },
+      { id: 3, name: "Смартфоны" },
+      { id: 4, name: "Телевизоры" },
+    ];
+    this._brands = [
+      { id: 1, name: "Samsung" },
+      { id: 2, name: "Asus" },
+      { id:3, name: "Lenovo" },
+      { id: 4, name: "Acer" },
+    ];
     this._devices = [
-        {id: 1, name: "Iphone 12 pro", price: 25000, rating: 5, img: "https://content1.rozetka.com.ua/goods/images/big/173869349.jpg"},
-        {id: 2, name: "Iphone 12 pro", price: 25000, rating: 5, img: "https://content1.rozetka.com.ua/goods/images/big/173869349.jpg"},
-        {id: 3, name: "Iphone 12 pro", price: 25000, rating: 5, img: "https://content1.rozetka.com.ua/goods/images/big/173869349.jpg"},
-        {id: 4, name: "Iphone 12 pro", price: 25000, rating: 5, img: "https://content1.rozetka.com.ua/goods/images/big/173869349.jpg"}
-       
-    ]
-        makeAutoObservable(this)
-    }
+      {
+        id: 1,
+        name: "Iphone 12 pro",
+        price: 25000,
+        rating: 5,
+        img: "https://content1.rozetka.com.ua/goods/images/big/173869349.jpg",
+      },
+      {
+        id: 2,
+        name: "Iphone 12 pro",
+        price: 25000,
+        rating: 5,
+        img: "https://content1.rozetka.com.ua/goods/images/big/173869349.jpg",
+      },
+      {
+        id: 3,
+        name: "Iphone 12 pro",
+        price: 25000,
+        rating: 5,
+        img: "https://content1.rozetka.com.ua/goods/images/big/173869349.jpg",
+      },
+      {
+        id: 4,
+        name: "Iphone 12 pro",
+        price: 25000,
+        rating: 5,
+        img: "https://content1.rozetka.com.ua/goods/images/big/173869349.jpg",
+      },
+      {
+        id: 5,
+        name: "Iphone 12 pro",
+        price: 25000,
+        rating: 5,
+        img: "https://content1.rozetka.com.ua/goods/images/big/173869349.jpg",
+      },
+      {
+        id: 6,
+        name: "Iphone 12 pro",
+        price: 25000,
+        rating: 5,
+        img: "https://content1.rozetka.com.ua/goods/images/big/173869349.jpg",
+      },
+    ];
+    this._selectedType = {};
+    this._selectedBrand = {};
+    makeAutoObservable(this);
+  }
 
-    setTypes(types){
-        this._types = types
-    }
+  setTypes(types) {
+    this._types = types;
+  }
 
-    setBrands(brands){
-        this._brands = brands
-    }
+  setBrands(brands) {
+    this._brands = brands;
+  }
 
-    setDevices(devices){
-        this._devices = devices
-    }
+  setDevices(devices) {
+    this._devices = devices;
+  }
 
-    get types(){
-     return  this.types
-    }
+  setSelectedType(type) {
+    this._selectedType = type;
+  }
+  
+  setSelectedBrand(brand) {
+    this._selectedBrand = brand;
+  }
 
-    get brands(){
-        return this.brands
-    }
+  
+  get types() {
+    return this._types;
+  }
 
-    get devices(){
-        return this.devices 
-    }
+  get brands() {
+    return this._brands;
+  }
+
+  get devices() {
+    return this._devices;
+  }
+
+  get selectedType() {
+    return this._selectedType;
+  }
+
+  get selectedBrand() {
+    return this._selectedBrand;
+  }
 }
